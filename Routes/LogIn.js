@@ -16,8 +16,7 @@ router.get("/log-in", async(req, res) => {
             if(SHA256(password + salt).toString(encBase64) !== hash) {
                 res.status(200).json({message: "The password that you've entered is incorrect"})
             } else {
-                res.status(200).json({message: "You're connected with success", account: {
-                    _id: _id, token: token}})
+                res.status(200).json({message: "You're connected with success", account: {token: token}})
             }
         }
     } catch (error) {

@@ -27,7 +27,7 @@ router.post("/sign-up", async(req, res) => {
             })
             await newAccount.save()
             const account = await Account.find({email: email})
-            res.status(200).json({message: "Account created successfully", key_info:{_id: account[0]._id, token: token}})
+            res.status(200).json({message: "Account created successfully", key_info:{token: token}})
         }
     } catch (error) {
         res.status(400).json({message: error.message})

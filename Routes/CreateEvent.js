@@ -5,10 +5,10 @@ const Account = require("../Models/Account")
 
 router.post("/create-event", async(req, res) => {
     try {
-        const {_id, date, title, description} = req.fields
-        const account = await Account.findById(_id)
+        const {token, date, title, description} = req.fields
+        const account = await Account.find({token: token})
         const newEvent = new Event({
-            user: account,
+            user: account[0],
             date: date,
             title: title,
             description: description
