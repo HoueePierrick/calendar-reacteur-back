@@ -10,7 +10,7 @@ app.use(cors())
 
 mongoose.connect(process.env.MONGODB_URI)
 
-const SignUp = require("./Routes/signup")
+const SignUp = require("./Routes/Signup")
 app.use(SignUp)
 
 const LogIn = require("./Routes/LogIn")
